@@ -1,0 +1,5 @@
+from rest_framework_simplejwt.views import TokenRefreshView
+from authentication.serializers.custom_tokend_refresh_serializer import CustomTokenRefreshSerializer
+
+class MyTokenRefreshPairView(TokenRefreshView):
+  serializer_class = CustomTokenRefreshSerializer
