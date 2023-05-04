@@ -1,6 +1,6 @@
 from django.urls import path
-from movies_series.viewsets import (RandomMovieSeriesView, 
-                                    MovieSeriesListView,
+from movies_series.viewsets import (RandomMovieSeriesViewSet, 
+                                    MovieViewSet,
                                     RateMovieSeriesView,
                                     MovieMarkAsWatchedViewSet,
                                     MovieRateViewSet)
@@ -13,10 +13,9 @@ router.register(r'watched', MarkMovieSeriesAsWatchedView)
 router.register(r'rate', RateMovieSeriesView)
 router.register(r'movies_watched', MovieMarkAsWatchedViewSet)
 router.register(r'movies_rate', MovieRateViewSet)
+router.register(r'random', RandomMovieSeriesViewSet)
+router.register(r'list', MovieViewSet)
 
 
 
-urlpatterns =  router.urls + [
-    path('random/', RandomMovieSeriesView.as_view(), name='random_movie_series'),
-    path('list/', MovieSeriesListView.as_view(), name='movie_series_list'),
-]
+urlpatterns =  router.urls + []
