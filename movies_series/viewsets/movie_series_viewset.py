@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics, status, mixins, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from movies_series.domain import Movie, UserRating, Gender, Type
+from movies_series.domain import Movie, Type
 from movies_series.serializers import MovieSerializer, UserRatingSerializer
 import random
 from django.db.models import Q
