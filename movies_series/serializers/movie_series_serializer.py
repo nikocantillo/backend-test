@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from movies_series.domain import MovieSeries
-from movies_series.serializers import GenderSerializer, TypeSerializer
+from movies_series.serializers.gender_serializer import GenderSerializer
+from movies_series.serializers.type_serializer import TypeSerializer
 
 
 class MovieSeriesSerializer(serializers.ModelSerializer):

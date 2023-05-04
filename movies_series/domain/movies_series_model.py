@@ -9,7 +9,7 @@ class MovieSeries(BaseModel):
     name = models.CharField(
         max_length=255
     )
-    genre = models.ManyToManyField(Gender)
+    gender = models.ManyToManyField(Gender)
     type = models.ForeignKey(
         Type, 
         on_delete=models.CASCADE
@@ -25,9 +25,9 @@ class MovieSeries(BaseModel):
     )
 
     def average_score(self):
-        if self.no_of_ratings == 0:
+        if self.number_of_ratings == 0:
             return 0
-        return self.total_score / self.no_of_ratings
+        return self.total_score / self.number_of_ratings
 
     def __str__(self):
         return self.name

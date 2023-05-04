@@ -4,7 +4,7 @@ from authentication.domain import User
 from movies_series.domain import MovieSeries
 
 
-class UserRating(models.Model):
+class UserRating(BaseModel):
     user = models.ForeignKey(
         User, 
         on_delete=models.CASCADE,
