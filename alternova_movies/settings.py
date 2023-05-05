@@ -28,8 +28,10 @@ SECRET_KEY = 'django-insecure-wl#a0z+x^u!f)v8dht+(n-41+p9(kg+i08-rc%d_6p&4jlmrz1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = ['*']
+CORS_ALLOW_HEADERS = ['*']
 
 # Application definition
 
@@ -46,6 +48,7 @@ PLUGINS_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders'
 ]
 
 LOCAL_APPS = [
@@ -64,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'alternova_movies.urls'

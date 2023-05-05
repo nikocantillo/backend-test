@@ -8,8 +8,6 @@ import random
 from django.db.models import Q
 from rest_framework.decorators import action
 
-
-
 class RandomMovieSeriesViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
@@ -73,8 +71,8 @@ class MovieViewSet(viewsets.ModelViewSet):
         queryset = self.apply_ordering(queryset)
         page = self.paginate_queryset(queryset)
         if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+            serializer = MovieSerializer(page, many=True).data
+            return self.get_paginated_response(serializer)
 
-        serializer = self.serializer_class(queryset, many=True)
+        serializer = MovieSerializer(queryset, many=True)
         return Response(serializer.data)
