@@ -14,6 +14,7 @@ class MovieSerializer(serializers.ModelSerializer):
             'type': data.type.name if data.type else None,
             'viewed_by': [user.username for user in data.viewed_by.all()],
             'average_rating': data.average_rating if data.average_rating else None
+            
         }
         return data_return
 
